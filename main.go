@@ -2,12 +2,17 @@ package main
 
 import (
 	"fmt"
-	"github.com/dojinkimm/golang_study/accounts"
+	"github.com/dojinkimm/golang_study/dict"
 )
 
-
 func main() {
-	account := accounts.NewAccount("Henry")
-	account.Deposit(10)
-	fmt.Println(account)
+	dictionary := dict.Dictionary{}
+	baseWord := "hello"
+	dictionary.Add(baseWord, "First")
+	err := dictionary.Update(baseWord, "Second")
+	if err != nil{
+		fmt.Println(err)
+	}
+	word, _ := dictionary.Search(baseWord)
+	fmt.Println(word)
 }
